@@ -1,0 +1,32 @@
+<%= form_with(model: construction_material) do |form| %>
+  <% if construction_material.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(construction_material.errors.count, "error") %> prohibited this construction_material from being saved:</h2>
+
+      <ul>
+        <% construction_material.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.number_field :amount %>
+  </div>
+
+  <div>
+    <%= form.label :material_id, style: "display: block" %>
+    <%= form.collection_select(:material_id, Material.all, :id, :name, { :prompt => 'Select a Material', :selected => @construction_material.material_id }, { class: 'form-control' }) %>
+  </div>
+
+  <div>
+    <%= form.label :construction_site_id, style: "display: block" %>
+    <%= form.collection_select(:construction_site_id, ConstructionSite.all, :id, :name, { :prompt => 'Select a Construction Site', :selected => @construction_material.construction_site_id }, { class: 'form-control' }) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Construction sites</h1>
+
+
+<div>
+  <%= form_with url: "/construction_sites", method: :get do |form| %>
+  <%= form.label :name_query, "Search for:" %>
+  <%= form.text_field :name_query %>
+  <%= form.submit "Search" %>
+
+    <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Starting Date</th>
+      <th>End Date</th>
+      <th>Link</th>
+    </tr>
+    <% @construction_sites.each do |construction_site| %>
+      <tr>
+        <td><%= construction_site.name%></td>
+        <td><%= construction_site.starting_date%></td>
+        <td><%= construction_site.end_date%></td>
+        <td><%= link_to "View", construction_site %></td>
+      </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+<div>
+  <button type="button" class="btn btn-dark"><%= link_to "New construction site", new_construction_site_url %></button>
+</div>
+
+<%
+=begin%>
+ <div id="construction_sites">
+  <% @construction_sites.each do |construction_site| %>
+    <%= render construction_site %>
+    <p>
+      <%= link_to "Show this construction site", construction_site %>
+    </p>
+  <% end %>
+</div> 
+<%
+=end%>
+
+
+

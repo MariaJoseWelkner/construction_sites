@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  starting_date: 2022-08-14
+  end_date: 2022-08-14
+  cost: 1
+  street: MyText
+  number: MyText
+  city: MyText
+  state: MyText
+  zip_code: MyText
+
+two:
+  name: MyText
+  starting_date: 2022-08-14
+  end_date: 2022-08-14
+  cost: 1
+  street: MyText
+  number: MyText
+  city: MyText
+  state: MyText
+  zip_code: MyText

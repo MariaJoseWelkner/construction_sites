@@ -1,0 +1,2 @@
+module ConstructionMaterialsHelper
+end
